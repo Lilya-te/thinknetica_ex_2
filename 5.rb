@@ -15,15 +15,17 @@ months = { 1 => 31, 2 => 28, 3 => 31, 4 => 30, 5 => 31, 6 => 30, 7 => 31, 8 => 3
 puts "Day: "
 day = gets.chomp.to_i
 
-puts("Impossible!"); return unless (day >= 1 && day <= 31)
+puts("Impossible day number!"); return unless (day >= 1 && day <= 31)
 
 puts "Month number% "
 mon = gets.chomp.to_i
 
-(puts("Impossible!"); return) unless months.keys.include?(mon)
+(puts("Impossible month number!"); return) unless months.keys.include?(mon)
 
 puts "Year number% "
 year = gets.chomp.to_i
+
+(puts("Impossible year number! Julian calendar took effect on 1 January 45 BC."); return) unless year >= -45
 
 months[2] = 29 if (year % 4 == 0 && (!(year % 100 == 0 && year % 400 != 0) || year < 1582))
 
